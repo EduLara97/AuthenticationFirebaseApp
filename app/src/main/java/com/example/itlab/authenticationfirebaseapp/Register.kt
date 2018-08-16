@@ -1,7 +1,9 @@
 package com.example.itlab.authenticationfirebaseapp
 
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
@@ -43,16 +45,17 @@ class Register : AppCompatActivity() {
         if(!name.isEmpty() && !password.isEmpty() && !email.isEmpty()){
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, {
                 task ->
-                run {
                     if (task.isSuccessful) {
                         val user = mAuth.currentUser
                         val uid = user!!.uid
                         mDatabase.child(uid).child("Name").setValue(name)
                         Toast.makeText(this,"Successfully signed in ", Toast.LENGTH_LONG).show()
+                        startActivity(Intent(this,Timeline::class.java));
                     } else {
-                        Toast.makeText(this, "Error", Toast.LENGTH_LONG).show()
+                        Log.i("ErrorFirebase",task.exception.toString())
+                        Toast.makeText(this, "Error (Recordar que la contraseña debe tener al menos 6 caracteres)", Toast.LENGTH_LONG).show()
                     }
-                }
+
             })
         }else{
             Toast.makeText(this,"Ingresar credenciales", Toast.LENGTH_LONG).show()

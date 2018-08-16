@@ -8,15 +8,18 @@
     android:orientation="vertical">
 
     <EditText
+        android:id="@+id/emailTxt"
         android:hint="Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="20dp"/>
     <EditText
+        android:id="@+id/passwordTxt"
         android:hint="password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"/>
+        android:layout_margin="20dp"
+        android:inputType="textPassword"/>
     <EditText
         android:id="@+id/nameTxt"
         android:hint="name"
