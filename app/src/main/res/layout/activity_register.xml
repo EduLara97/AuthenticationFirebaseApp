@@ -4,34 +4,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.itlab.authenticationfirebaseapp.MainActivity"
+    tools:context="com.example.itlab.authenticationfirebaseapp.Register"
     android:orientation="vertical">
+
     <EditText
-        android:id="@+id/emailTxt"
+        android:hint="Email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Email"/>
+        android:layout_margin="20dp"/>
     <EditText
-        android:id="@+id/passwordTxt"
+        android:hint="password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:hint="Password"/>
+        android:layout_margin="20dp"/>
+    <EditText
+        android:id="@+id/nameTxt"
+        android:hint="name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"/>
     <Button
-        android:id="@+id/loginBtn"
+        android:id="@+id/regBtn"
+        android:text="Register"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="LOGIN"
-        android:layout_margin="20dp"
-        android:layout_gravity="center"/>
-    <TextView
-        android:id="@+id/regTxt"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Touch me to Register"
         android:layout_gravity="center"
-        android:layout_margin="20dp"
-        android:textSize="15sp"/>
+        android:layout_margin="20dp"/>
 
 </LinearLayout>
