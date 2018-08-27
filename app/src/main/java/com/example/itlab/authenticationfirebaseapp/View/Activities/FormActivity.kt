@@ -1,4 +1,4 @@
-package com.example.itlab.authenticationfirebaseapp
+package com.example.itlab.authenticationfirebaseapp.View.Activities
 
 import android.support.v7.app.AppCompatActivity
 

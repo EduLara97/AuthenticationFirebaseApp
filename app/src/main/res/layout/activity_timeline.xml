@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.itlab.authenticationfirebaseapp.Timeline"
+    tools:context="com.example.itlab.authenticationfirebaseapp.View.Activities.Timeline"
     android:orientation="vertical">
 
     <android.support.design.widget.AppBarLayout
@@ -18,13 +18,12 @@
             android:layout_height="?attr/actionBarSize"/>
     </android.support.design.widget.AppBarLayout>
 
-    <TextView
-        android:id="@+id/dispTxt"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:text="Welcome Edwin"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true"/>
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/appbar"
+        tools:listitem="@layout/contact_item" />
 
 </RelativeLayout>

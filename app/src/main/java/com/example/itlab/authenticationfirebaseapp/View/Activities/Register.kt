@@ -1,10 +1,11 @@
-package com.example.itlab.authenticationfirebaseapp
+package com.example.itlab.authenticationfirebaseapp.View.Activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.itlab.authenticationfirebaseapp.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_register.*
 
