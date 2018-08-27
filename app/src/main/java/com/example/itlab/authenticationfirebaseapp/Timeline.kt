@@ -18,7 +18,7 @@ class Timeline : AppCompatActivity() {
         setContentView(R.layout.activity_timeline)
         tbTimeline.title = "Timeline"
         setSupportActionBar(tbTimeline)
-        dispTxt.text = "Bienvenido a la aplicación"
+        dispTxt.text = getString(R.string.welcome)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {

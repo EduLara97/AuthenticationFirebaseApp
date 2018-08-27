@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AuthenticationFirebaseApp</string>
+    <string name="welcome">Bienvenido a la aplicación</string>
 </resources>

@@ -18,6 +18,7 @@
         </activity>
         <activity android:name=".Timeline" />
         <activity android:name=".Register"/>
+        <activity android:name=".FormActivity"/>
     </application>
 
 </manifest>

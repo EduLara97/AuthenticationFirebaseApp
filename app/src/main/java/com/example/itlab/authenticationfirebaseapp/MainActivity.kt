@@ -17,13 +17,13 @@ class MainActivity : AppCompatActivity() {
 
 
 
-        loginBtn.setOnClickListener({
+        loginBtn.setOnClickListener {
             login()
-        })
+        }
 
-        regTxt.setOnClickListener({
+        regTxt.setOnClickListener {
             register()
-        })
+        }
 
 
     }
@@ -37,21 +37,20 @@ class MainActivity : AppCompatActivity() {
         val email = emailTxt.text.toString()
         val password = passwordTxt.text.toString()
 
-        if(!email.isEmpty() && !password.isEmpty()){
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, {
-                task ->
+        if (!email.isEmpty() && !password.isEmpty()) {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 run {
                     if (task.isSuccessful) {
                         emailTxt.setText("")
                         passwordTxt.setText("")
                         startActivity(Intent(this, Timeline::class.java))
-                    }else{
-                        Toast.makeText(this,"Fallo de autenticación",
+                    } else {
+                        Toast.makeText(this, "Fallo de autenticación",
                                 Toast.LENGTH_LONG).show()
                     }
                 }
-            })
-        }else{
+            }
+        } else {
             Toast.makeText(this, "Ingresar credenciales", Toast.LENGTH_LONG).show()
         }
 
