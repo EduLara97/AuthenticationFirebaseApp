@@ -17,7 +17,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".Timeline" />
-        <activity android:name=".Register"></activity>
+        <activity android:name=".Register"/>
     </application>
 
 </manifest>
