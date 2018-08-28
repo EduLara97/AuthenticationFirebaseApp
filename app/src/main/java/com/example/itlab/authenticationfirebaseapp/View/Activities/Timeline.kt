@@ -7,14 +7,18 @@ import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
+import com.example.itlab.authenticationfirebaseapp.Models.Contact
 import com.example.itlab.authenticationfirebaseapp.R
+import com.example.itlab.authenticationfirebaseapp.View.Adapters.ContactAdapter
+import com.example.itlab.authenticationfirebaseapp.View.Presenters.TimelineDelegate
+import com.example.itlab.authenticationfirebaseapp.View.Presenters.TimelinePresenter
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_timeline.*
 
-class Timeline : AppCompatActivity() {
+class Timeline : AppCompatActivity(), TimelineDelegate {
 
     val mAuth = FirebaseAuth.getInstance()
-    val uid = intent.getStringExtra("uid")
+    val mPresenter = TimelinePresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,8 +26,10 @@ class Timeline : AppCompatActivity() {
         tbTimeline.title = "Timeline"
         setSupportActionBar(tbTimeline)
 
-        recyclerView.layoutManager = LinearLayoutManager(this)
+        val uid = intent.getStringExtra("uid")
+        mPresenter.setInitialReference(uid)
 
+        recyclerView.layoutManager = LinearLayoutManager(this)
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -38,6 +44,10 @@ class Timeline : AppCompatActivity() {
             Toast.makeText(this, "Logged out", Toast.LENGTH_LONG).show()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onContactsReady(contacts: List<Contact>) {
+        recyclerView.adapter = ContactAdapter(contacts, this)
     }
 
 }
