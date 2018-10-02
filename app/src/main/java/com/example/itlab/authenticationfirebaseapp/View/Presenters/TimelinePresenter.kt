@@ -2,21 +2,21 @@ package com.example.itlab.authenticationfirebaseapp.View.Presenters
 
 import android.util.Log
 import com.example.itlab.authenticationfirebaseapp.Models.Contact
-import com.example.itlab.authenticationfirebaseapp.View.Activities.Timeline
+import com.example.itlab.authenticationfirebaseapp.View.Activities.TimelineActivity
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.database.ValueEventListener
 
-class TimelinePresenter(val view: Timeline) {
+class TimelinePresenter(val view: TimelineActivity) {
 
-    val db = FirebaseDatabase.getInstance()
+    val db = FirebaseDatabase.getInstance().reference
 
     fun setInitialReference(uid: String) {
-        db.reference.child(uid).addValueEventListener(object : ValueEventListener {
+        db.child("users/$uid/contacts").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 val contacts = ArrayList<Contact>()
-                if (p0.exists()) {
+                if (p0.value != null) {
                     p0.children.forEach { dataSnapshot ->
                         run {
                             val name = dataSnapshot.child("name").value as String
@@ -29,7 +29,6 @@ class TimelinePresenter(val view: Timeline) {
                     view.onContactsReady(contacts)
                 }
             }
-
             override fun onCancelled(p0: DatabaseError?) {
                 Log.e("Test:", p0.toString())
             }

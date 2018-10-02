@@ -8,7 +8,7 @@ import com.example.itlab.authenticationfirebaseapp.R
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_main.*
 
-class MainActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity() {
 
     private val mAuth = FirebaseAuth.getInstance()
 
@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun register() {
-        startActivity(Intent(this, Register::class.java))
+        startActivity(Intent(this, RegisterActivity::class.java))
     }
 
     private fun login() {
@@ -44,7 +44,7 @@ class MainActivity : AppCompatActivity() {
                     if (task.isSuccessful) {
                         emailTxt.setText("")
                         passwordTxt.setText("")
-                        var intent = Intent(this, Timeline::class.java)
+                        var intent = Intent(this, TimelineActivity::class.java)
                         intent.putExtra("uid", task.result.user.uid)
                         startActivity(intent)
 
