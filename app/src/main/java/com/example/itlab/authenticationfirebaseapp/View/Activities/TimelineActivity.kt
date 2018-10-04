@@ -6,7 +6,6 @@ import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.Toast
 import com.example.itlab.authenticationfirebaseapp.Models.Contact
 import com.example.itlab.authenticationfirebaseapp.R
@@ -18,24 +17,21 @@ import kotlinx.android.synthetic.main.activity_timeline.*
 
 class TimelineActivity : AppCompatActivity(), TimelineDelegate {
 
-    val mAuth = FirebaseAuth.getInstance()
-    val mPresenter = TimelinePresenter(this)
+    private val mAuth = FirebaseAuth.getInstance()!!
+    private val mPresenter = TimelinePresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_timeline)
         tbTimeline.title = "TimelineActivity"
         setSupportActionBar(tbTimeline)
-
-        val uid = intent.getStringExtra("uid")
-        mPresenter.setInitialReference(uid)
         recyclerView.layoutManager = LinearLayoutManager(this)
-
+        mPresenter.setInitialReference()
         addButton.setOnClickListener { addContact() }
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.menu, menu)
+        menuInflater.inflate(R.menu.menu_logout, menu)
         return super.onCreateOptionsMenu(menu)
     }
 
@@ -55,7 +51,6 @@ class TimelineActivity : AppCompatActivity(), TimelineDelegate {
     override fun onContactsReady(contacts: List<Contact>) {
         recyclerView.adapter = ContactAdapter(contacts, this)
     }
-
 
 
 }

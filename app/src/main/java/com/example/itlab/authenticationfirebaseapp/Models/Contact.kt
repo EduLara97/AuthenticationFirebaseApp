@@ -5,4 +5,4 @@ import android.graphics.Bitmap
 class Contact(var name: String,
               var number: String,
               var email: String,
-              var image: Bitmap?)
+              var image: String?)

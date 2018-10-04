@@ -3,6 +3,7 @@ package com.example.itlab.authenticationfirebaseapp.View.Presenters
 import android.util.Log
 import com.example.itlab.authenticationfirebaseapp.Models.Contact
 import com.example.itlab.authenticationfirebaseapp.View.Activities.TimelineActivity
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.FirebaseDatabase
@@ -10,9 +11,10 @@ import com.google.firebase.database.ValueEventListener
 
 class TimelinePresenter(val view: TimelineActivity) {
 
-    val db = FirebaseDatabase.getInstance().reference
+    private val db = FirebaseDatabase.getInstance().reference
+    private val uid = FirebaseAuth.getInstance().currentUser!!.uid
 
-    fun setInitialReference(uid: String) {
+    fun setInitialReference() {
         db.child("users/$uid/contacts").addValueEventListener(object : ValueEventListener {
             override fun onDataChange(p0: DataSnapshot) {
                 val contacts = ArrayList<Contact>()
@@ -22,14 +24,17 @@ class TimelinePresenter(val view: TimelineActivity) {
                             val name = dataSnapshot.child("name").value as String
                             val number = dataSnapshot.child("number").value as String
                             val email = dataSnapshot.child("email").value as String
-                            val contact = Contact(name, number, email, null)
+                            val imagePath = dataSnapshot.child("imagePath").value as String
+
+                            val contact = Contact(name, number, email, imagePath)
                             contacts.add(contact)
                         }
                     }
                     view.onContactsReady(contacts)
                 }
             }
-            override fun onCancelled(p0: DatabaseError?) {
+
+            override fun onCancelled(p0: DatabaseError) {
                 Log.e("Test:", p0.toString())
             }
         })

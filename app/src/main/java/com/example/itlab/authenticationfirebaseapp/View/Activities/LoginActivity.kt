@@ -1,8 +1,8 @@
 package com.example.itlab.authenticationfirebaseapp.View.Activities
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.itlab.authenticationfirebaseapp.R
 import com.google.firebase.auth.FirebaseAuth
@@ -16,7 +16,9 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-
+        if (mAuth.currentUser != null) {
+            endLogin()
+        }
 
         loginBtn.setOnClickListener {
             login()
@@ -42,12 +44,7 @@ class LoginActivity : AppCompatActivity() {
             mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 run {
                     if (task.isSuccessful) {
-                        emailTxt.setText("")
-                        passwordTxt.setText("")
-                        var intent = Intent(this, TimelineActivity::class.java)
-                        intent.putExtra("uid", task.result.user.uid)
-                        startActivity(intent)
-
+                        endLogin()
                     } else {
                         Toast.makeText(this, "Fallo de autenticación",
                                 Toast.LENGTH_LONG).show()
@@ -57,6 +54,12 @@ class LoginActivity : AppCompatActivity() {
         } else {
             Toast.makeText(this, "Ingresar credenciales", Toast.LENGTH_LONG).show()
         }
+    }
 
+    private fun endLogin() {
+        emailTxt.setText("")
+        passwordTxt.setText("")
+        val intent = Intent(this, TimelineActivity::class.java)
+        startActivity(intent)
     }
 }
