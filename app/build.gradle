@@ -19,6 +19,12 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
+        buildTypes.each {
+            def development = it.name.startsWith("dv")
+            def demo_admin_channel_id = development ? "${channel_demo_admin_id_development}" : "${channel_demo_admin_id_release}"
+
+            it.buildConfigField "String", "DEMO_CHANNEL_ADMIN_ID", demo_admin_channel_id
+        }
     }
 }
 

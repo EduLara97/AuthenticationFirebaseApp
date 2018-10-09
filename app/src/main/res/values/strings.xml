@@ -1,5 +1,7 @@
 <resources>
     <string name="app_name">AuthenticationFirebaseApp</string>
+    <string name="notifications_admin_channel_name">AdminChannel</string>
+    <string name="notifications_admin_channel_description">AdminChannel for Demo</string>
     <string name="welcome">Bienvenido a la aplicación</string>
     <string name="obligatoryError">Este campo es obligatorio</string>
 </resources>
