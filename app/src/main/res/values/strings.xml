@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">AuthenticationFirebaseApp</string>
     <string name="welcome">Bienvenido a la aplicación</string>
+    <string name="obligatoryError">Este campo es obligatorio</string>
 </resources>
