@@ -33,11 +33,14 @@ class Register : AppCompatActivity() {
             mAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(this, {
                 task ->
                     if (task.isSuccessful) {
-                        Toast.makeText(this,"Successfully signed in ", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this,"Successfully signed in", Toast.LENGTH_LONG).show()
                         startActivity(Intent(this,Timeline::class.java))
                     } else {
-                        Log.i("ErrorFirebase",task.exception.toString())
-                        Toast.makeText(this, "Error (Recordar que la contraseña debe tener al menos 6 caracteres)", Toast.LENGTH_LONG).show()
+                        if(password.length<6){
+                            Log.i("ErrorFirebase",task.exception.toString())
+                            Toast.makeText(this, "La contraseña debe tener al menos 6 caracteres", Toast.LENGTH_LONG).show()
+                        }else
+                            Toast.makeText(this, "Error en registro", Toast.LENGTH_LONG).show()
                     }
 
             })
