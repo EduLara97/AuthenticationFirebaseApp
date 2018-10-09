@@ -1,44 +1,35 @@
 package com.example.itlab.authenticationfirebaseapp.notifications
 
-import android.app.NotificationManager
-import android.content.Context
-import android.media.RingtoneManager
-import android.support.v4.app.NotificationCompat
-import android.util.Log
-import com.example.itlab.authenticationfirebaseapp.BuildConfig
-import com.example.itlab.authenticationfirebaseapp.R
-import com.example.itlab.authenticationfirebaseapp.shared.Constants
+import android.os.Build
+import android.support.annotation.RequiresApi
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import java.util.*
 
 class NotificationService : FirebaseMessagingService() {
+    //Declaramos la variable que instancia la clase NotificationManager.
 
-    private lateinit var notificationManager: NotificationManager
-
+    //Implementando evento onNewToken para obtener nuevo token.
     override fun onNewToken(token: String) {
-        super.onNewToken(token)
-        Log.e(Constants.TAG, "Refreshed token: $token")
+        //LLamando a método súper de onNewToken.
+
+        //Obtener nuevo token.
     }
 
+    //Implementando evento onMessageReceived para recibir mensajes.
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        //Obteniendo el servicio de notificaciones del sistema Android como administrador de notificaciones.
 
-        val notificationId = Random().nextInt(60000) + (System.currentTimeMillis() and 0xfffffff).toInt()
+        //Generando ID para cada notificación que se va a agregar al centro de notificaciones de Android.
 
-        val title = remoteMessage.notification?.title
-        val message = remoteMessage.notification?.body
+        //Recibiendo título del mensaje.
 
-        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        //Recibiendo cuerpo del mensaje.
 
-        val notificationBuilder = NotificationCompat.Builder(this, BuildConfig.DEMO_CHANNEL_ADMIN_ID)
-                .setSmallIcon(R.drawable.ic_notifications_active)
-                .setContentTitle(title)
-                .setContentText(message)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
+        //Obtener sonido por defecto para reproducirlo cuando llegue una nueva notificación.
 
-        notificationManager.notify(notificationId, notificationBuilder.build())
+        //Construyendo nueva notificación.
+
+        //Agregando notificación al centro de notificaciones.
     }
 
 }
