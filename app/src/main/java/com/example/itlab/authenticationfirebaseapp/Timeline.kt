@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.activity_timeline.*
 
 class Timeline : AppCompatActivity() {
 
-    val mAuth = FirebaseAuth.getInstance()
+    private val mAuth = FirebaseAuth.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

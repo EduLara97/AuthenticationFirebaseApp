@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">AuthenticationFirebaseApp</string>
+    <string name="notifications_admin_channel_name">AdminChannel</string>
+    <string name="notifications_admin_channel_description">AdminChannel for Demo</string>
 </resources>

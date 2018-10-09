@@ -17,15 +17,15 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        loginBtn.setOnClickListener({
+        loginBtn.setOnClickListener {
             progressBar.visibility = View.VISIBLE
             loginBtn.text = ""
             login()
-        })
+        }
 
-        regTxt.setOnClickListener({
+        regTxt.setOnClickListener {
             register()
-        })
+        }
 
 
     }
@@ -40,23 +40,21 @@ class MainActivity : AppCompatActivity() {
         val password = passwordTxt.text.toString()
 
         if(!email.isEmpty() && !password.isEmpty()){
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this, {
-                task ->
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 run {
                     if (task.isSuccessful) {
                         emailTxt.setText("")
                         passwordTxt.setText("")
                         startActivity(Intent(this, Timeline::class.java))
                         progressBar.visibility = View.GONE
-                        loginBtn.text = "LOGIN"
                     }else{
                         Toast.makeText(this,"Fallo de autenticación",
                                 Toast.LENGTH_LONG).show()
                         progressBar.visibility = View.GONE
-                        loginBtn.text = "LOGIN"
                     }
+                    loginBtn.text = "LOGIN"
                 }
-            })
+            }
         }else{
             Toast.makeText(this, "Ingresar credenciales", Toast.LENGTH_LONG).show()
             progressBar.visibility = View.GONE
