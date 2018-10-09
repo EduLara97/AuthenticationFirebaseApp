@@ -1,74 +1,56 @@
 package com.example.itlab.authenticationfirebaseapp.notifications
 
-import android.app.NotificationChannel
-import android.app.NotificationManager
-import android.content.Context
-import android.graphics.Color
-import android.media.RingtoneManager
 import android.os.Build
 import android.support.annotation.RequiresApi
-import android.support.v4.app.NotificationCompat
-import android.util.Log
-import com.example.itlab.authenticationfirebaseapp.BuildConfig
-import com.example.itlab.authenticationfirebaseapp.R
-import com.example.itlab.authenticationfirebaseapp.shared.Constants
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
-import java.util.*
 
 class NotificationService : FirebaseMessagingService() {
+    //Declaramos la variable que instancia la clase NotificationManager.
 
-    private var notificationManager: NotificationManager? = null
-
+    //Implementando evento onNewToken para obtener nuevo token.
     override fun onNewToken(token: String) {
-        super.onNewToken(token)
-        Log.e(Constants.TAG, "Refreshed token: $token")
+        //LLamando a método súper de onNewToken.
+
+        //Obtener nuevo token.
     }
 
+    //Implementando evento onMessageReceived para recibir mensajes.
     override fun onMessageReceived(remoteMessage: RemoteMessage) {
-        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+        //Obteniendo el servicio de notificaciones del sistema Android como administrador de notificaciones.
 
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-            setupChannels()
-        }
+        //LLamando a método de compatiblidad con Android Oreo.
 
-        val notificationId = Random().nextInt(60000) + (System.currentTimeMillis() and 0xfffffff).toInt()
+        //Generando ID para cada notificación que se va a agregar al centro de notificaciones de Android.
 
-        //val title = remoteMessage.data["title"]
-        //val message = remoteMessage.data["message"]
+        //Recibiendo título del mensaje.
 
-        val title = remoteMessage.notification?.title
-        val message = remoteMessage.notification?.body
+        //Recibiendo cuerpo del mensaje.
 
-        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
+        //Obtener sonido por defecto para reproducirlo cuando llegue una nueva notificación.
 
-        val notificationBuilder = NotificationCompat.Builder(this, BuildConfig.DEMO_CHANNEL_ADMIN_ID)
-                .setSmallIcon(R.drawable.ic_notifications_active)
-                .setContentTitle(title)
-                .setContentText(message)
-                .setAutoCancel(true)
-                .setSound(defaultSoundUri)
+        //Construyendo nueva notificación.
 
-        if (notificationManager != null) {
-            notificationManager!!.notify(notificationId, notificationBuilder.build())
-        }
+        //Agregando notificación al centro de notificaciones.
     }
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private fun setupChannels() {
-        val adminChannelName = getString(R.string.notifications_admin_channel_name)
-        val adminChannelDescription = getString(R.string.notifications_admin_channel_description)
-        val adminChannel: NotificationChannel
+        //Obteniendo nombre de canal de notificaciones del archivo strings.xml.
 
-        adminChannel = NotificationChannel(BuildConfig.DEMO_CHANNEL_ADMIN_ID, adminChannelName, NotificationManager.IMPORTANCE_LOW)
-        adminChannel.description = adminChannelDescription
-        adminChannel.enableLights(true)
-        adminChannel.lightColor = Color.RED
-        adminChannel.enableVibration(true)
+        //Obteniendo descripción de canal de notificaciones del archivo strings.xml.
 
-        if (notificationManager != null) {
-            notificationManager!!.createNotificationChannel(adminChannel)
-        }
+        //Instanciando canal de notificaciones
+
+        //Generando nuevo canal de notificaciones con un ID previamente almacenado en la configuración de la aplicación y el nombre obtenido del archivo strings.xml.
+
+        //Añadiendo descripción al canal de notificaciones.
+
+        //Habilitando y configurando LED de notificaciones.
+
+        //Habilitando vibraciones.
+
+        //Creando canal de notificaciones.
     }
 
 }
