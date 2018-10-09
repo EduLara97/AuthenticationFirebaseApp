@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "57978121898-vgs8lb0m9vbchrbf4a5nvvormn7khu9b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.itlab.authenticationfirebaseapp",
+            "certificate_hash": "442f95ef813e455790a01ea8e947ef583105262d"
+          }
+        },
+        {
           "client_id": "57978121898-al9oldktt5cmi6l31rsn4t4kkjfkemp3.apps.googleusercontent.com",
           "client_type": 3
         }
