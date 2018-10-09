@@ -4,7 +4,10 @@ import com.example.itlab.authenticationfirebaseapp.View.Activities.RegisterActiv
 
 class RegisterPresenter(val view: RegisterActivity) {
 
-     //Firebase Database reference
+    // Declarar instancia de FirebaseAuth
+    //private val mAuth = FirebaseAuth.getInstance()!!
+
+    //Firebase Database reference
 
     fun createUserDBReference(uid: String, values: HashMap<String, Any>) {
         //Firebase Write Data
@@ -17,5 +20,14 @@ class RegisterPresenter(val view: RegisterActivity) {
         return hashMap
     }
 
+    fun register(email: String, password: String, name: String){
+        // Verificar el registro del usuario
+
+    }
+
+    interface RegisterDelegate{
+        fun correctRegister()
+        fun incorrectRegister(mensaje:String)
+    }
 
 }

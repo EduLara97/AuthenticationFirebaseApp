@@ -5,20 +5,19 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.itlab.authenticationfirebaseapp.R
-import com.google.firebase.auth.FirebaseAuth
+import com.example.itlab.authenticationfirebaseapp.View.Presenters.LoginPresenter
+import com.example.itlab.authenticationfirebaseapp.View.Presenters.LoginPresenter.LoginDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 
-class LoginActivity : AppCompatActivity() {
+class LoginActivity : AppCompatActivity(), LoginDelegate {
 
-    private val mAuth = FirebaseAuth.getInstance()
+    val mPresenter = LoginPresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        if (mAuth.currentUser != null) {
-            endLogin()
-        }
+        mPresenter.currentUser()
 
         loginBtn.setOnClickListener {
             login()
@@ -37,24 +36,16 @@ class LoginActivity : AppCompatActivity() {
 
         val email = emailTxt.text.toString()
         val password = passwordTxt.text.toString()
+        mPresenter.login(email,password)
 
-        if (!email.isEmpty() && !password.isEmpty()) {
-            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
-                run {
-                    if (task.isSuccessful) {
-                        endLogin()
-                    } else {
-                        Toast.makeText(this, "Fallo de autenticación",
-                                Toast.LENGTH_LONG).show()
-                    }
-                }
-            }
-        } else {
-            Toast.makeText(this, "Ingresar credenciales", Toast.LENGTH_LONG).show()
-        }
     }
 
-    private fun endLogin() {
+
+    override fun incorrectLogin(mensaje: String) {
+        Toast.makeText(this, mensaje, Toast.LENGTH_LONG).show()
+    }
+
+    override fun correctLogin() {
         emailTxt.setText("")
         passwordTxt.setText("")
         val intent = Intent(this, TimelineActivity::class.java)

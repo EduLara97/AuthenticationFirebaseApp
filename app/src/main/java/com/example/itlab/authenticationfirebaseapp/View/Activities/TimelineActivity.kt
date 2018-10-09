@@ -12,12 +12,11 @@ import com.example.itlab.authenticationfirebaseapp.R
 import com.example.itlab.authenticationfirebaseapp.View.Adapters.ContactAdapter
 import com.example.itlab.authenticationfirebaseapp.View.Presenters.TimelineDelegate
 import com.example.itlab.authenticationfirebaseapp.View.Presenters.TimelinePresenter
-import com.google.firebase.auth.FirebaseAuth
 import kotlinx.android.synthetic.main.activity_timeline.*
 
 class TimelineActivity : AppCompatActivity(), TimelineDelegate {
 
-    private val mAuth = FirebaseAuth.getInstance()!!
+    //private val mAuth = FirebaseAuth.getInstance()!!
     private val mPresenter = TimelinePresenter(this)
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -41,9 +40,9 @@ class TimelineActivity : AppCompatActivity(), TimelineDelegate {
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
         if (item!!.itemId == R.id.signOut) {
-            mAuth.signOut()
+            /*mAuth.signOut()
             startActivity(Intent(this, LoginActivity::class.java))
-            Toast.makeText(this, "Logged out", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Logged out", Toast.LENGTH_LONG).show()*/
         }
         return super.onOptionsItemSelected(item)
     }
