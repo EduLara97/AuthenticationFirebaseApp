@@ -27,8 +27,6 @@ class LoginActivity : AppCompatActivity() {
         regTxt.setOnClickListener {
             register()
         }
-
-
     }
 
     private fun register() {

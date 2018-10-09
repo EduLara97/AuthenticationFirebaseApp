@@ -27,7 +27,7 @@ class ContactAdapter(private val contacts: List<Contact>, val context: Context) 
         p0.tvName.text = contact.name
         p0.tvNumber.text = contact.number
         if (contact.image != null) {
-            Glide.with(p0.itemView)
+            Glide.with(context)
                     .load(storage.child(contact.image!!))
                     .into(p0.ivContact)
         }

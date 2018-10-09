@@ -18,21 +18,25 @@ class FormPresenter(val view: FormActivity) {
 
     fun saveContact(values: HashMap<String, Any>) {
         db.child(path).setValue(values)
+        view.onContactSaved()
     }
 
     fun toHashMap(name: String, email: String, telephone: String, imagePath: String): HashMap<String, Any> {
         val hashMap = HashMap<String, Any>()
         hashMap["email"] = email
         hashMap["name"] = name
-        hashMap["telephone"] = telephone
+        hashMap["number"] = telephone
         hashMap["imagePath"] = imagePath
         return hashMap
     }
 
-    fun uploadImage(image: Bitmap) {
+    fun uploadImage(image: Bitmap?) {
+        if (image == null) {
+            view.onImageUploaded("")
+        }
         val imageRef = storage.child(path)
         val baos = ByteArrayOutputStream()
-        image.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        image!!.compress(Bitmap.CompressFormat.JPEG, 100, baos)
         val data = baos.toByteArray()
 
         imageRef.putBytes(data).addOnSuccessListener {
