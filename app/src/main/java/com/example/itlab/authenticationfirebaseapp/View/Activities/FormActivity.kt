@@ -16,7 +16,6 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
-import android.widget.Toast
 import com.example.itlab.authenticationfirebaseapp.R
 import com.example.itlab.authenticationfirebaseapp.View.Presenters.FormDelegate
 import com.example.itlab.authenticationfirebaseapp.View.Presenters.FormPresenter
@@ -78,7 +77,7 @@ class FormActivity : AppCompatActivity(), FormDelegate {
                         val bitmapDrawable = imageView.drawable as BitmapDrawable
                         mPresenter.uploadImage(bitmapDrawable.bitmap)
                     } else {
-                        onImageUploaded("")
+                        mPresenter.uploadImage(null)
                     }
                 }
             }

@@ -1,14 +1,13 @@
 package com.example.itlab.authenticationfirebaseapp.View.Presenters
 
 import com.example.itlab.authenticationfirebaseapp.View.Activities.RegisterActivity
-import com.google.firebase.database.FirebaseDatabase
 
 class RegisterPresenter(val view: RegisterActivity) {
 
-     val db = FirebaseDatabase.getInstance().reference
+     //Firebase Database reference
 
     fun createUserDBReference(uid: String, values: HashMap<String, Any>) {
-        db.child("users/$uid").setValue(values)
+        //Firebase Write Data
     }
 
     fun toHashMap(name: String, email: String): HashMap<String, Any> {
