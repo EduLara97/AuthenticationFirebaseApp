@@ -4,4 +4,5 @@
     <string name="notifications_admin_channel_description">AdminChannel for Demo</string>
     <string name="welcome">Bienvenido a la aplicación</string>
     <string name="obligatoryError">Este campo es obligatorio</string>
+    <string name="take_photo">Tomar Foto</string>
 </resources>

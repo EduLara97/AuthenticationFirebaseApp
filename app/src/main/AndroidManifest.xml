@@ -11,7 +11,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".View.Activities.LoginActivity"
+        <activity android:name=".views.activities.LoginActivity"
             android:theme="@style/SplashTheme"
             android:screenOrientation="portrait">
             <intent-filter>
@@ -20,9 +20,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".View.Activities.TimelineActivity" />
-        <activity android:name=".View.Activities.RegisterActivity"/>
-        <activity android:name=".View.Activities.FormActivity"/>
+        <activity
+            android:name=".views.activities.MLActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity android:name=".views.activities.TimelineActivity" />
+        <activity android:name=".views.activities.RegisterActivity"/>
+        <activity android:name=".views.activities.FormActivity"/>
         <service android:name=".notifications.NotificationService"
             android:permission="com.google.android.c2dm.permission.SEND">
             <intent-filter>

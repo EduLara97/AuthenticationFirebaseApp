@@ -1,13 +1,12 @@
-package com.example.itlab.authenticationfirebaseapp.View.Activities
+package com.example.itlab.authenticationfirebaseapp.views.activities
 
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import com.example.itlab.authenticationfirebaseapp.R
-import com.example.itlab.authenticationfirebaseapp.View.Presenters.RegisterPresenter
-import com.example.itlab.authenticationfirebaseapp.View.Presenters.RegisterPresenter.RegisterDelegate
+import com.example.itlab.authenticationfirebaseapp.views.presenters.RegisterPresenter
+import com.example.itlab.authenticationfirebaseapp.views.presenters.RegisterPresenter.RegisterDelegate
 import kotlinx.android.synthetic.main.activity_register.*
 
 class RegisterActivity : AppCompatActivity(), RegisterDelegate {

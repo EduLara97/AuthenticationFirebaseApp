@@ -1,6 +1,6 @@
-package com.example.itlab.authenticationfirebaseapp.View.Presenters
+package com.example.itlab.authenticationfirebaseapp.views.presenters
 
-import com.example.itlab.authenticationfirebaseapp.View.Activities.RegisterActivity
+import com.example.itlab.authenticationfirebaseapp.views.activities.RegisterActivity
 
 class RegisterPresenter(val view: RegisterActivity) {
 

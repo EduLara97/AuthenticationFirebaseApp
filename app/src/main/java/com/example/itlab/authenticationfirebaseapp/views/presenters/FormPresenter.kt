@@ -1,7 +1,7 @@
-package com.example.itlab.authenticationfirebaseapp.View.Presenters
+package com.example.itlab.authenticationfirebaseapp.views.presenters
 
 import android.graphics.Bitmap
-import com.example.itlab.authenticationfirebaseapp.View.Activities.FormActivity
+import com.example.itlab.authenticationfirebaseapp.views.activities.FormActivity
 import java.util.*
 
 class FormPresenter(val view: FormActivity) {

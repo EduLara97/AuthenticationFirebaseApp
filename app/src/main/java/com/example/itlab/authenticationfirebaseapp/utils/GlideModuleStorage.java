@@ -1,4 +1,4 @@
-package com.example.itlab.authenticationfirebaseapp.Util;
+package com.example.itlab.authenticationfirebaseapp.utils;
 
 import android.content.Context;
 

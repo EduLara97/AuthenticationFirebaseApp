@@ -1,8 +1,7 @@
-package com.example.itlab.authenticationfirebaseapp.View.Presenters
+package com.example.itlab.authenticationfirebaseapp.views.presenters
 
-import android.util.Log
-import com.example.itlab.authenticationfirebaseapp.Models.Contact
-import com.example.itlab.authenticationfirebaseapp.View.Activities.TimelineActivity
+import com.example.itlab.authenticationfirebaseapp.models.Contact
+import com.example.itlab.authenticationfirebaseapp.views.activities.TimelineActivity
 
 class TimelinePresenter(val view: TimelineActivity) {
 

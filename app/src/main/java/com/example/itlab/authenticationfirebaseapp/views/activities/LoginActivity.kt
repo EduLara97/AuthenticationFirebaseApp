@@ -1,12 +1,12 @@
-package com.example.itlab.authenticationfirebaseapp.View.Activities
+package com.example.itlab.authenticationfirebaseapp.views.activities
 
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
 import com.example.itlab.authenticationfirebaseapp.R
-import com.example.itlab.authenticationfirebaseapp.View.Presenters.LoginPresenter
-import com.example.itlab.authenticationfirebaseapp.View.Presenters.LoginPresenter.LoginDelegate
+import com.example.itlab.authenticationfirebaseapp.views.presenters.LoginPresenter
+import com.example.itlab.authenticationfirebaseapp.views.presenters.LoginPresenter.LoginDelegate
 import kotlinx.android.synthetic.main.activity_main.*
 
 class LoginActivity : AppCompatActivity(), LoginDelegate {

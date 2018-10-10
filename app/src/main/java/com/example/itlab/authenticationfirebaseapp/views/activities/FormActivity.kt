@@ -1,4 +1,4 @@
-package com.example.itlab.authenticationfirebaseapp.View.Activities
+package com.example.itlab.authenticationfirebaseapp.views.activities
 
 import android.Manifest
 import android.app.Activity
@@ -17,8 +17,8 @@ import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import com.example.itlab.authenticationfirebaseapp.R
-import com.example.itlab.authenticationfirebaseapp.View.Presenters.FormDelegate
-import com.example.itlab.authenticationfirebaseapp.View.Presenters.FormPresenter
+import com.example.itlab.authenticationfirebaseapp.views.presenters.FormDelegate
+import com.example.itlab.authenticationfirebaseapp.views.presenters.FormPresenter
 import kotlinx.android.synthetic.main.activity_form.*
 
 class FormActivity : AppCompatActivity(), FormDelegate {

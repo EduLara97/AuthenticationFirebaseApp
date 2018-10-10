@@ -1,7 +1,6 @@
-package com.example.itlab.authenticationfirebaseapp.View.Presenters
+package com.example.itlab.authenticationfirebaseapp.views.presenters
 
-import android.widget.Toast
-import com.example.itlab.authenticationfirebaseapp.View.Activities.LoginActivity
+import com.example.itlab.authenticationfirebaseapp.views.activities.LoginActivity
 
 /**
  * Created by itlab on 10/9/18.

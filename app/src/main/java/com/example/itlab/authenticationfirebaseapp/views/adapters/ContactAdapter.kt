@@ -1,10 +1,10 @@
-package com.example.itlab.authenticationfirebaseapp.View.Adapters
+package com.example.itlab.authenticationfirebaseapp.views.adapters
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.ViewGroup
-import com.example.itlab.authenticationfirebaseapp.Models.Contact
+import com.example.itlab.authenticationfirebaseapp.models.Contact
 import com.example.itlab.authenticationfirebaseapp.R
 import kotlinx.android.synthetic.main.contact_item.view.*
 

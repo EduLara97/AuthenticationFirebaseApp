@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.example.itlab.authenticationfirebaseapp.View.Activities.TimelineActivity">
+    tools:context="com.example.itlab.authenticationfirebaseapp.views.activities.TimelineActivity">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbar"
