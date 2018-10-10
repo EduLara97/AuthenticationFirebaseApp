@@ -16,6 +16,7 @@ class LoginActivity : AppCompatActivity(), LoginDelegate {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        setTheme(R.style.AppTheme)
 
         mPresenter.currentUser()
 
