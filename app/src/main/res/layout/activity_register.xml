@@ -6,32 +6,118 @@
     android:layout_height="match_parent"
     tools:context="com.example.itlab.authenticationfirebaseapp.views.activities.RegisterActivity"
     android:orientation="vertical">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
-    <EditText
-        android:id="@+id/emailTxt"
-        android:hint="Email"
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?android:attr/actionBarSize"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+    </android.support.design.widget.AppBarLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"/>
-    <EditText
-        android:id="@+id/passwordTxt"
-        android:hint="password"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
+        <ImageView
+            android:id="@+id/ivEmail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_account_circle_black"/>
+        <EditText
+            android:id="@+id/emailTxt"
+            android:hint="Email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivEmail"
+            android:layout_marginLeft="12dp"
+            android:layout_toEndOf="@+id/ivEmail"
+            android:layout_marginStart="12dp"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
-        android:inputType="textPassword"/>
-    <EditText
-        android:id="@+id/nameTxt"
-        android:hint="name"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
+        <ImageView
+            android:id="@+id/ivPassword"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_lock_black"
+            android:layout_centerVertical="true"/>
+        <EditText
+            android:id="@+id/passwordTxt"
+            android:hint="password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@+id/ivPassword"
+            android:layout_marginLeft="12dp"
+            android:layout_toEndOf="@+id/ivPassword"
+            android:layout_marginStart="12dp"
+            android:inputType="textPassword"/>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"/>
-    <Button
-        android:id="@+id/regBtn"
-        android:text="Register"
-        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="16dp">
+        <ImageView
+            android:id="@+id/ivName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_email_black"
+            android:layout_centerVertical="true" />
+        <EditText
+            android:id="@+id/nameTxt"
+            android:hint="name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/ivName"
+            android:layout_marginLeft="12dp"
+            android:layout_toEndOf="@+id/ivName"
+            android:layout_marginStart="12dp"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_margin="20dp"/>
+        android:layout_marginTop="35dp">
+
+        <TextView
+            android:id="@+id/cancelTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="40dp"
+            android:text="Cancelar"
+            android:textColor="@color/colorButton"
+            android:textSize="15sp" />
+
+        <Button
+            android:id="@+id/regBtn"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="35dp"
+            android:background="@drawable/roundedbutton"
+            android:text="Registrarse"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+
 
 </LinearLayout>

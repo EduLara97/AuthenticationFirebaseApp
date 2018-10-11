@@ -18,6 +18,12 @@ class RegisterActivity : AppCompatActivity(), RegisterDelegate {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_register)
 
+        toolbar.setTitle(R.string.register)
+
+        cancelTxt.setOnClickListener {
+            onBackPressed()
+        }
+
         regBtn.setOnClickListener {
             register()
         }

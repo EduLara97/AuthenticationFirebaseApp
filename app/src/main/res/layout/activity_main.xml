@@ -14,8 +14,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/firebase1"
-        android:layout_gravity="center"
-        tools:src="@drawable/splash_screen" />
+        android:layout_gravity="center" />
     <EditText
         android:id="@+id/emailTxt"
         android:layout_width="match_parent"
@@ -47,7 +46,6 @@
             android:text="@string/login_text_button"
             android:textColor="@android:color/white"
             android:background="@drawable/roundedbutton"
-            tools:background="@color/colorPrimary"
             />
         <ProgressBar
             android:id="@+id/progressBar"
