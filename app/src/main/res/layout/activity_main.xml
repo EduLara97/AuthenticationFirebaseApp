@@ -10,17 +10,29 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
     </android.support.v7.widget.Toolbar>
+    <ImageView
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/firebase1"
+        android:layout_gravity="center"
+        tools:src="@drawable/splash_screen" />
     <EditText
         android:id="@+id/emailTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:hint="Email"/>
     <EditText
         android:id="@+id/passwordTxt"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginLeft="40dp"
         android:hint="Password"
         android:inputType="textPassword"/>
     <RelativeLayout
@@ -32,7 +44,10 @@
             android:id="@+id/loginBtn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="LOGIN"
+            android:text="@string/login_text_button"
+            android:textColor="@android:color/white"
+            android:background="@drawable/roundedbutton"
+            tools:background="@color/colorPrimary"
             />
         <ProgressBar
             android:id="@+id/progressBar"
@@ -51,6 +66,7 @@
         android:text="Registrarse"
         android:layout_gravity="center"
         android:layout_margin="20dp"
-        android:textSize="15sp"/>
+        android:textSize="15sp"
+        android:textColor="@color/colorButton"/>
 
 </LinearLayout>
