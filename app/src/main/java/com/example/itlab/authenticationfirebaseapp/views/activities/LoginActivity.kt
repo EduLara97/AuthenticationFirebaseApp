@@ -41,7 +41,6 @@ class LoginActivity : AppCompatActivity(), LoginDelegate {
         val email = emailTxt.text.toString()
         val password = passwordTxt.text.toString()
         mPresenter.login(email,password)
-
     }
 
 

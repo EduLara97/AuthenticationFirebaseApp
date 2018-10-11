@@ -7,4 +7,12 @@
     <string name="take_photo">Tomar Foto</string>
     <string name="login_text_button">INGRESAR</string>
     <string name="register">Registro</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="registrarse">Registrarse</string>
+    <string name="contact_number">Contact number</string>
+    <string name="contact_name">Contact name</string>
+    <string name="nombre">Nombre</string>
+    <string name="telefono">Telefono</string>
+    <string name="contact_image">Contact image</string>
 </resources>

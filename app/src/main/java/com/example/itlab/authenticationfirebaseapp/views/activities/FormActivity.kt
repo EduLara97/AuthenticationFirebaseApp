@@ -16,6 +16,7 @@ import android.support.v7.app.AppCompatActivity
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
+import android.widget.ImageView
 import com.example.itlab.authenticationfirebaseapp.R
 import com.example.itlab.authenticationfirebaseapp.views.presenters.FormDelegate
 import com.example.itlab.authenticationfirebaseapp.views.presenters.FormPresenter
@@ -25,6 +26,8 @@ class FormActivity : AppCompatActivity(), FormDelegate {
 
     private val CAMERA_REQUEST_CODE = 101
     private val mPresenter = FormPresenter(this)
+
+    private var hasPhoto = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,15 +41,19 @@ class FormActivity : AppCompatActivity(), FormDelegate {
             if (permissionCheck != PackageManager.PERMISSION_GRANTED) {
                 Log.i(this.localClassName, "Permission to record denied")
                 makeRequest()
+            } else {
+                openCamera()
             }
-            openCamera()
+
         }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         if (requestCode == CAMERA_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
             val imageBitmap = data?.extras?.get("data") as Bitmap
+            imageView.scaleType = ImageView.ScaleType.CENTER_CROP
             imageView.setImageBitmap(imageBitmap)
+            hasPhoto = true
         }
     }
 
@@ -73,7 +80,7 @@ class FormActivity : AppCompatActivity(), FormDelegate {
         when (item!!.itemId) {
             R.id.check -> {
                 if (checkForCompletion()) {
-                    if (imageView.drawable !is ColorDrawable) {
+                    if (hasPhoto) {
                         val bitmapDrawable = imageView.drawable as BitmapDrawable
                         mPresenter.uploadImage(bitmapDrawable.bitmap)
                     } else {

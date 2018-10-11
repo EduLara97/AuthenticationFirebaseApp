@@ -41,6 +41,9 @@ dependencies {
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.8.0'
 
+    //Round Images
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
     //Firebase
     // Add dependency firebase-core
     // Añadir dependencia de Firebase Authentication
