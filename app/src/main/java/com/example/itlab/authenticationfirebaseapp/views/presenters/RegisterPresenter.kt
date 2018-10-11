@@ -5,7 +5,6 @@ import com.example.itlab.authenticationfirebaseapp.views.activities.RegisterActi
 class RegisterPresenter(val view: RegisterActivity) {
 
     // Declarar instancia de FirebaseAuth
-    //private val mAuth = FirebaseAuth.getInstance()!!
 
     //Firebase Database reference
 

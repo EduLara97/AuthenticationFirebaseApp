@@ -8,7 +8,6 @@ import com.example.itlab.authenticationfirebaseapp.views.activities.LoginActivit
 class LoginPresenter(val view : LoginActivity) {
 
     // Declarar instancia de FirebaseAuth
-    //private val mAuth = FirebaseAuth.getInstance()
 
     fun login(email : String, password : String){
 
