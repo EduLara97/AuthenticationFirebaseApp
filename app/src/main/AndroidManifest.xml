@@ -27,13 +27,8 @@
         <activity android:name=".views.activities.TimelineActivity" />
         <activity android:name=".views.activities.RegisterActivity"/>
         <activity android:name=".views.activities.FormActivity"/>
-        <service android:name=".notifications.NotificationService"
-            android:permission="com.google.android.c2dm.permission.SEND">
-            <intent-filter>
-                <action android:name="com.google.firebase.MESSAGING_EVENT" />
-                <action android:name="com.google.android.c2dm.intent.RECEIVE" />
-            </intent-filter>
-        </service>
+
+        <!--Add service here-->
     </application>
 
 </manifest>
