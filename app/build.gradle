@@ -45,7 +45,6 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     //Firebase
-    implementation 'com.google.firebase:firebase-auth:16.0.5'
     // Add cloud messaging reference.
 
     //Firebase ML Kit
