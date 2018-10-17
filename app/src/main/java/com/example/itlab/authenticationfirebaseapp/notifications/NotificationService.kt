@@ -1,30 +1,42 @@
 package com.example.itlab.authenticationfirebaseapp.notifications
 
-class NotificationService () {
-    //Declaramos la variable que instancia la clase NotificationManager.
+import android.app.NotificationManager
+import android.content.Context
+import android.media.RingtoneManager
+import android.support.v4.app.NotificationCompat
+import android.util.Log
+import com.example.itlab.authenticationfirebaseapp.R
+import com.google.firebase.messaging.FirebaseMessagingService
+import com.google.firebase.messaging.RemoteMessage
+import java.util.*
 
-    //Implementando evento onNewToken para obtener nuevo token.
-    fun onNewToken(token: String) {
-        //LLamando a método súper de onNewToken.
+class NotificationService : FirebaseMessagingService() {
+    private val DEMO_CHANNEL_ADMIN_ID = "com.example.itlab.authenticationfirebaseapp.channel_demo"
+    private lateinit var notificationManager: NotificationManager
 
-        //Obtener nuevo token.
+    override fun onNewToken(token: String) {
+        super.onNewToken(token)
+        Log.v("AuthFirebase", "Refreshed token: $token")
     }
 
-    //Implementando evento onMessageReceived para recibir mensajes.
-    fun onMessageReceived(remoteMessage: Any) {
-        //Obteniendo el servicio de notificaciones del sistema Android como administrador de notificaciones.
+    override fun onMessageReceived(remoteMessage: RemoteMessage) {
+        notificationManager = getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
 
-        //Generando ID para cada notificación que se va a agregar al centro de notificaciones de Android.
+        val notificationId = Random().nextInt(60000) + (System.currentTimeMillis() and 0xfffffff).toInt()
 
-        //Recibiendo título del mensaje.
+        val title = remoteMessage.notification?.title
+        val message = remoteMessage.notification?.body
 
-        //Recibiendo cuerpo del mensaje.
+        val defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
 
-        //Obtener sonido por defecto para reproducirlo cuando llegue una nueva notificación.
+        val notificationBuilder = NotificationCompat.Builder(this, DEMO_CHANNEL_ADMIN_ID)
+                .setSmallIcon(R.drawable.ic_notifications_active)
+                .setContentTitle(title)
+                .setContentText(message)
+                .setAutoCancel(true)
+                .setSound(defaultSoundUri)
 
-        //Construyendo nueva notificación.
-
-        //Agregando notificación al centro de notificaciones.
+        notificationManager.notify(notificationId, notificationBuilder.build())
     }
 
 }

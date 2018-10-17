@@ -45,8 +45,8 @@ dependencies {
     implementation 'de.hdodenhof:circleimageview:2.2.0'
 
     //Firebase
-    // Add dependency firebase-core
-    // Añadir dependencia de Firebase Authentication
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
+    implementation "com.google.firebase:firebase-messaging:17.3.4"
 
     //Firebase ML Kit
 
@@ -55,3 +55,4 @@ dependencies {
 }
 
 // Add plugin google-services
+apply plugin: 'com.google.gms.google-services'
