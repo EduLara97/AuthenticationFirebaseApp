@@ -24,7 +24,7 @@ class ContactAdapter(private val contacts: List<Contact>, val context: Context) 
         val contact = contacts[position]
         p0.tvName.text = contact.name
         p0.tvNumber.text = contact.number
-        if (contact.image != null) {
+        contact.image?.let {
             //Firebase Storage UI Glide
         }
     }
